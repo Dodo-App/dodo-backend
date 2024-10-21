@@ -17,17 +17,12 @@ Dodo Backend is the backend service for the Dodo application, which connects to 
     cd dodo-backend
     ```
 
-3. Switch to the `feature/DODO-12-based-project` branch:
-    ```sh
-    git checkout feature/DODO-12-based-project
-    ```
-
-4. Install the required npm packages:
+3. Install the required npm packages:
     ```sh
     npm install
     ```
 
-5. Set up your environment variables:
+4. Set up your environment variables:
 
     Create a `.env` file based on the `.env.example` file and fill in your MongoDB Atlas URI:
     ```sh
@@ -39,17 +34,17 @@ Dodo Backend is the backend service for the Dodo application, which connects to 
     MONGODB_URI=<your-mongodb-atlas-connection-string>
     ```
 
-6. Run the database seed script to insert initial data:
+5. Run the database seed script to insert initial data:
     ```sh
     npm run seed
     ```
 
-7. Launch the application:
+6. Launch the application:
     ```sh
     npm run dev
     ```
 
-8. Open your browser and visit [http://localhost:3000](http://localhost:3000) to start interacting with the API.
+7. Open your browser and visit [http://localhost:3000](http://localhost:3000) to start interacting with the API.
 
 ## Development
 To run the application in development mode with `ts-node-dev`:
