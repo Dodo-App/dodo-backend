@@ -5,8 +5,8 @@ import express from 'express'
 import cors from "cors";
 import supertokens from 'supertokens-node';
 import { middleware, errorHandler } from "supertokens-node/framework/express";
+import config from './config'
 import connectDB from './config/database'
-
 import "./config/supertokens"
 
 import demoRouter from './routes/demo'
@@ -19,7 +19,7 @@ connectDB()
 
 // Enable CORS
 app.use(cors({
-  origin: process.env.FRONTEND_DOMAIN || 'http://localhost:3000',
+  origin: config.frontendDomain,
   allowedHeaders: ["content-type", ...supertokens.getAllCORSHeaders()],
   credentials: true,
 }));
@@ -40,6 +40,6 @@ app.get('/', (req, res) => {
 // Supertokens error handling
 app.use(errorHandler());
 
-app.listen(port, () => {
-  console.log(`Server is running on port http://localhost:${port}`) 
+app.listen(config.port, () => {
+  console.log(`Server is running on port http://localhost:${port}`)
 })
