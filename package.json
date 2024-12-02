@@ -20,11 +20,14 @@
   },
   "homepage": "https://github.com/Dodo-App/dodo-backend#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^5.0.0",
-    "mongoose": "^8.7.0"
+    "mongoose": "^8.7.0",
+    "supertokens-node": "^21.1.0"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "@types/node": "^22.7.6",
     "ts-node-dev": "^2.0.0",
