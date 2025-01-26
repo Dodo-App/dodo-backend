@@ -2,6 +2,7 @@ import config from './index'
 import SuperTokens from "supertokens-node";
 import ThirdParty from "supertokens-node/recipe/thirdparty"
 import Passwordless from "supertokens-node/recipe/passwordless"
+import Dashboard from "supertokens-node/recipe/dashboard";
 import Session from "supertokens-node/recipe/session"
 import { TypeInput } from "supertokens-node/types";
 
@@ -21,30 +22,31 @@ export const SuperTokensConfig: TypeInput = {
   recipeList: [
     Passwordless.init({
       contactMethod: 'EMAIL',
-      flowType: 'USER_INPUT_CODE_AND_MAGIC_LINK'
+      flowType: "USER_INPUT_CODE_AND_MAGIC_LINK",
     }),
-    ThirdParty.init({
-      signInAndUpFeature: {
-        providers: [{
-          config: {
-            thirdPartyId: "google",
-            clients: [{
-              clientId: config.supertokens.google.clientId,
-              clientSecret: config.supertokens.google.clientSecret,
-              scope: ["email", "profile"],
-            }]
-          }
-        }, {
-          config: {
-            thirdPartyId: "facebook",
-            clients: [{
-              clientId: config.supertokens.facebook.clientId,
-              clientSecret: config.supertokens.facebook.clientSecret,
-            }]
-          }
-        }],
-      }
-    }),
-    Session.init()
+    // ThirdParty.init({
+    //   signInAndUpFeature: {
+    //     providers: [{
+    //       config: {
+    //         thirdPartyId: "google",
+    //         clients: [{
+    //           clientId: config.supertokens.google.clientId,
+    //           clientSecret: config.supertokens.google.clientSecret,
+    //           scope: ["email", "profile"],
+    //         }]
+    //       }
+    //     }, {
+    //       config: {
+    //         thirdPartyId: "facebook",
+    //         clients: [{
+    //           clientId: config.supertokens.facebook.clientId,
+    //           clientSecret: config.supertokens.facebook.clientSecret,
+    //         }]
+    //       }
+    //     }],
+    //   }
+    // }),
+    Session.init(),
+    Dashboard.init(),
   ]
 }
