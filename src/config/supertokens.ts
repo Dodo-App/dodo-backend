@@ -3,12 +3,13 @@ import SuperTokens from "supertokens-node";
 import ThirdParty from "supertokens-node/recipe/thirdparty"
 import Passwordless from "supertokens-node/recipe/passwordless"
 import Session from "supertokens-node/recipe/session"
+import { TypeInput } from "supertokens-node/types";
 
-SuperTokens.init({
+export const SuperTokensConfig: TypeInput = {
   framework: 'express',
   supertokens: {
     connectionURI: config.supertokens.connectionURI,
-    apiKey: config.supertokens.apiKey,
+    apiKey: config.supertokens.apiKey
   },
   appInfo: {
     appName: "Dodo",
@@ -30,6 +31,7 @@ SuperTokens.init({
             clients: [{
               clientId: config.supertokens.google.clientId,
               clientSecret: config.supertokens.google.clientSecret,
+              scope: ["email", "profile"],
             }]
           }
         }, {
@@ -45,4 +47,4 @@ SuperTokens.init({
     }),
     Session.init()
   ]
-});
+}
